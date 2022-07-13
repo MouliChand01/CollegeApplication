@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import collegeService from "../service/collegeService";
 import "./Registration.css"
 
-
 const Registration = () => {
-
     const [collegeInfo, setCollegeInfo] = useState({
         college_Name: "",
         college_Id: "",
@@ -13,12 +11,12 @@ const Registration = () => {
         college_State: ""
     });
 
-
-    const onSubmitform = (e) => {
+  
+const onSubmitform = (e) => {
         e.preventDefault();
         collegeService.newCollegeRegistartion(collegeInfo).then((e) => (console.log(e)));
         alert("You are successfully Registared College ... !!");
-    }
+        }
 
     return (
         <div className="card">

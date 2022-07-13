@@ -1,6 +1,13 @@
 import axios from "axios";
 
 const baseURL='https://collegeapplication-afd4c-default-rtdb.firebaseio.com/Register.json';
+const config = {
+   headers: {
+     "Access-Control-Allow-Origin": "*",
+     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+   }
+ };
+ 
 
 class collegeapplication{
 
@@ -17,7 +24,7 @@ class collegeapplication{
    }
 
    deleteCollege(collegeId){
-      return axios.delete(baseURL+"/"+collegeId);
+      return axios.delete('https://collegeapplication-afd4c-default-rtdb.firebaseio.com/Register/'+collegeId,config);
    }
 
 }

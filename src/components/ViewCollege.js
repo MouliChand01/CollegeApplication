@@ -7,15 +7,20 @@ const ViewCollege = () => {
     const [data, setData] = useState([]);
 
    useEffect(() => {
-        collegeService.getAllCollegs().then((e) => {
-            const collegeData = Object.values(e.data);
+      collegeService.getAllCollegs().then((e) => {
+            const objKeys = Object.keys(e.data);
+            const collegeData = [];
+            for(let i in e.data){
+                let d = {id:i, ...e.data[i]};
+                collegeData.push(d)
+            }
             console.log("college Data :", collegeData);
             setData(collegeData)
         });
     }, []);
 
     const deleteRow=(id)=>{
-        collegeService.deleteCollege(id).then()
+     collegeService.deleteCollege(id);
     }
 
    return (
@@ -40,7 +45,7 @@ const ViewCollege = () => {
                                 <td>{e.college_Mobile}</td>
                                 <td>{e.college_State}</td>
                                 <td><button className="btn btn-warning">View</button></td>
-                                <td><button className="btn btn-info" onClick={()=>deleteRow(e.college_Id)}>Delete</button></td>
+                                <td><button className="btn btn-info" onClick={()=>deleteRow(e.id)}>Delete</button></td>
                             </tr>
                         )
                     })

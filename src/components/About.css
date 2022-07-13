@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.webAbout,.webAbout1{
+    background-color: black;
+}
+
+.webAbout h3{
+    color: aquamarine;
+    text-transform: uppercase;
+}
+p{
+    text-align: justify;
+}
+.aboutPage{
+    width: 100%;
+}
+.container-fluid{
+    margin: 5px;
+}
+
+.webAbout1 h3{
+    color: aquamarine;
+    text-transform: uppercase;
+    animation:blinking 2s infinite;
+}
+@keyframes blinking{
+    0%{  color: aquamarine; }
+    47%{  color: rgb(9, 36, 77); }
+    62%{  color: yellow; }
+    97%{  color:transparent; }
+    100%{ color: rgb(18, 115, 194);  }
+    }
